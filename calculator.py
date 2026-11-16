@@ -4,3 +4,6 @@ def divide(a, b):
 
 def average(values):
     return sum(values) / len(values)
+
+def sum(a, b):
+    return a + b
