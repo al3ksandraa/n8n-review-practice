@@ -1,0 +1,25 @@
+name: Autofix CI
+
+on:
+  push:
+    branches:
+      - 'auto-fix/**'
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: autofix-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - run: python -m unittest -v
