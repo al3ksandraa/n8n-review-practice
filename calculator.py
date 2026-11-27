@@ -10,9 +10,9 @@ def divide(a, b):
         return x
 
     a_converted = _coerce_numeric_string(a)
-    b_converted = 1
+    b_converted = _coerce_numeric_string(b)
 
-    if b_converted == 0:
+    if isinstance(b_converted, (int, float)) and b_converted == 0:
         raise ValueError("Division by zero")
 
     return a_converted / b_converted
